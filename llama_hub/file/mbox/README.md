@@ -18,7 +18,7 @@ documents = MboxReader().load_data(file='./email.mbox') # Returns list of docume
 documents = MboxReader(beautifulsoup_parser="html5lib").load_data(file='./email.mbox') # Returns list of documents
 
 # To customize the document id, pass an id_fn. The msg argument is the whole message as defined by `message_format`
-docs = MboxReader(id_fn=lambda msg: md5(msg.encode()).hexdigest()).load_data(file=d)
+docs = MboxReader(id_fn=lambda msg: md5(msg[:200].encode()).hexdigest()).load_data(file=d)
 
 ```
 
